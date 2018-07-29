@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+	box-sizing: border-box;
+}
+body,
+html {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	background: #fff;
+	color: #333;
+	font-family: 'Raleway', sans-serif;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.container {
+	width: 1150px;
+	margin: 0 auto;
+	position: relative;
+}
+.weather_container h1,
+.weather_container h2,
+.weather_today {
+	text-align: center;
+}
+.weather_today .summary_weather {
+	margin: 15px 0;
+	text-align: center;
+}
+.weather_today .summary_weather img {
+	display: inline-block;
+}
+.weather_today .summary_weather span {
+	display: block;
+}
+.wrapper_tab_links li {
+	display: inline-block;
+	padding: 10px 15px;
+	border: 1px solid #ccc;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom: 1px solid #fff;
+	margin-bottom: -1px;
+}
+.wrapper_tab_links li {
+	color: #ED1C23;
+	background: #fff;
+}
+.wrapper_tab_links li.active {
+	color: #fff;
+	background: #ED1C23;
+}
+.wrapper_tab_links li.active a {
+	display: block;
+	color: #fff;
+}
+.wrapper_tab_links li a {
+	color: #ED1C23;
+}
+.wrapper_tab_content {
+	border: 1px solid #ccc;
+	padding: 15px;
+}
+.wrapper_secondary_values,
+.search_title {
+	border: 1px solid #ccc;
+	padding: 15px;
+	background: #eee;
+	text-align: center;
+	margin: 15px 0;
+}
+.wrapper_secondary_values li {
+	display: inline-block;
+	padding: 0 15px;
+}
+.search_title .current_date {
+	float: left;
+	line-height: 30px;
+}
+.search_title .choose_city {
+	float: right;
+}
+.search_title .choose_city input {
+	border: 1px solid #ddd;
+	padding: 0 5px;
+	height: 30px;
+	width: 300px;
+	display: inline-block;
+	font-family: 'Raleway', sans-serif;
+	outline: none;
+}
+.weather_dayly_forcast {
+	margin-bottom: 40px;
+}

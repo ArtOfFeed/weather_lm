@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Weather LoopMe</title>
+</head>
+<style>
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+</style>
+<body>
+	<div class="container weather_container" ng-controller="MainController">
+		<h1>Holla Weather LoopMe</h1>
+		<div class="search_title clearfix">
+			<div class="current_date">{{date}}</div>
+			<form class="choose_city" ng-submit="getData()">
+				<input placeholder="Enter your location" ng-model="location" type="text">
+			</form>
+		</div>
+		<div class="weather_today">
+			<h2 class="currnet_city">{{main.city.name}}</h2>
+			<div class="current_temperature">{{data.main.temp}}</div>
+			<div class="summary_weather">
+				<img ng-src="http://openweathermap.org/img/w/{{data.weather[0].icon}}.png" alt="">
+				<span>{{data.weather[0].description}}</span>
+			</div>
+			<div class="wrapper_secondary_values">
+				<ul>
+					<li><span>Pressure:</span> {{data.main.pressure}}</li>
+					<li><span>Humidity:</span> {{data.main.humidity}}</li>
+					<li><span>Wind Speed:</span> {{data.wind.speed}}</li>
+					<li><span>Clouds:</span> {{data.clouds.all}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="weather_dayly_forcast" ng-controller="TabController">
+			<div class="inner_dayly_forcast">
+				<ul class="wrapper_tab_links">
+					<li ng-repeat="item in items" ng-class="{active: isSet($index)}">
+						<a href ng-click="setTab($index)">{{item}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="wrapper_tab_content">
+				<div ng-repeat="item in items" ng-show="isSet($index)">
+					<h2>{{item}}</h2>
+					<canvas id="bar_{{item}}" class="chart chart-bar" chart-data="singleWindArr" chart-labels="singleDateArr"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

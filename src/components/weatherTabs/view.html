@@ -1,0 +1,17 @@
+<div class="weather_daily_forecast">
+    <div class="inner_daily_forecast">
+        <ul class="wrapper_tab_links">
+            <li ng-repeat="tabName in $ctrl.tabs" ng-class="{active: $ctrl.selected === tabName}">
+                <a href="#" ng-click="$ctrl.setTab($event, tabName)">{{tabName}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="wrapper_tab_content">
+        <div ng-repeat="tabName in $ctrl.tabs" ng-show="$ctrl.selected === tabName">
+            <h2 class="tab_title">{{tabName}}</h2>
+            <canvas class="chart chart-bar"
+                    chart-data="$ctrl.data[tabName]"
+                    chart-labels="$ctrl.data.date"></canvas>
+        </div>
+    </div>
+</div>

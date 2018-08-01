@@ -1,0 +1,34 @@
+<div class="container weather_container">
+    <h1>Holla Weather LoopMe</h1>
+
+    <pre ng-show="$ctrl.error">{{$ctrl.error}}</pre>
+
+    <div class="search_title clearfix">
+        <div class="current_date">{{$ctrl.date}}</div>
+        <form class="choose_city" ng-submit="$ctrl.getData()">
+            <input placeholder="Enter your location"
+                   ng-model="$ctrl.location"
+                   ng-blur="$ctrl.getData()"
+                   type="text"/>
+        </form>
+    </div>
+
+    <div class="weather_today">
+        <h2 class="current_city">{{$ctrl.main.city.name}}</h2>
+        <div class="current_temperature">{{$ctrl.data.main.temp}}</div>
+        <div class="summary_weather">
+            <img ng-src="http://openweathermap.org/img/w/{{$ctrl.data.weather[0].icon}}.png" alt=""/>
+            <span>{{$ctrl.data.weather[0].description}}</span>
+        </div>
+        <div class="wrapper_secondary_values">
+            <ul>
+                <li><span>Pressure:</span> {{$ctrl.data.main.pressure}}</li>
+                <li><span>Humidity:</span> {{$ctrl.data.main.humidity}}</li>
+                <li><span>Wind Speed:</span> {{$ctrl.data.wind.speed}}</li>
+                <li><span>Clouds:</span> {{$ctrl.data.clouds.all}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <weather-tabs tabs="$ctrl.tabs" data="$ctrl.chartsData"></weather-tabs>
+</div>
